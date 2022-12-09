@@ -1,0 +1,286 @@
+inp w
+// w1
+mul x 0
+add x 1
+mul y 0
+add y w
+add y 1
+mul y x
+add z y
+// z = w1 + 1
+
+inp w
+// w2
+mul x 0
+add x 1
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+// z = 26 * (w1 + 1)
+
+mul y 0
+add y w
+add y 11
+mul y x
+add z y
+// z = 26 * (w1 + 1) + w2 + 11
+
+inp w
+// w3
+mul x 0
+add x 1
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11)
+
+mul y 0
+add y w
+add y 1
+mul y x
+add z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w3 + 1
+
+inp w
+// w4
+mul x 0
+add x 1
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+// z = 26 * (26 * (26 * (w1 + 1) + w2 + 11) + w3 + 1)
+
+mul y 0
+add y w
+add y 11
+mul y x
+add z y
+// z = 26 * (26 * (26 * (w1 + 1) + w2 + 11) + w3 + 1) + w4 + 11
+
+inp w
+// w5
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w3 + 1
+
+add x -8
+// x = w4 + 3 => w5 === w4 + 3
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 2
+mul y x
+add z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w3 + 1
+
+inp w
+// w6
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 26 * (w1 + 1) + w2 + 11
+add x -5
+// x = w3 - 4 => w6 === w3 - 4
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 9
+mul y x
+add z y
+// z = 26 * (w1 + 1) + w2 + 11
+
+inp w
+// w7
+mul x 0
+add x z
+mod x 26
+add x 11
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 7
+mul y x
+add z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w7 + 7
+
+inp w
+// w8
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 26 * (w1 + 1) + w2 + 11
+add x -13
+// x = w7 - 6 => w8 === w7 - 6
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 11
+mul y x
+add z y
+// z = 26 * (w1 + 1) + w2 + 11
+
+inp w
+// w9
+mul x 0
+add x z
+mod x 26
+add x 12
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 6
+mul y x
+add z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w9 + 6
+
+inp w
+// w10
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 26 * (w1 + 1) + w2 + 11
+
+add x -1
+// x = w9 + 5 => w10 === w9 + 5
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 15
+mul y x
+add z y
+// z = 26 * (w1 + 1) + w2 + 11
+
+inp w
+// w11
+mul x 0
+add x z
+mod x 26
+add x 14
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 7
+mul y x
+add z y
+// z = 26 * (26 * (w1 + 1) + w2 + 11) + w11 + 7
+
+inp w
+// w12
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 26 * (w1 + 1) + w2 + 11
+
+add x -5
+// x = w11 + 2 => w12 === w11 + 2
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 1
+mul y x
+add z y
+// z = 26 * (w1 + 1) + w2 + 11
+
+inp w
+// w13
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = w1 + 1
+add x -4
+// x = w2 + 7 => w13 === w2 + 7
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 8
+mul y x
+add z y
+// z = w1 + 1
+
+inp w
+mul x 0
+add x z
+mod x 26
+div z 26
+// z = 0
+add x -8
+// x = w1 - 7 => w14 === w1 - 7
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y 6
+mul y x
+add z y
